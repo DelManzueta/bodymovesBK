@@ -1,0 +1,55 @@
+@layer base {
+  :root {
+    --color-primary: #b287fd;
+    --color-secondary: #b2f142;
+    --color-charcoal: #262626;
+    --color-silver: #d8d9dd;
+    --color-dove: #eae1ff;
+    --color-raisin: #212121;
+    --color-ivory: #fdfbff;
+  }
+
+  body {
+    @apply bg-ivory text-charcoal antialiased;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-3xl shadow-lg overflow-hidden;
+    background: rgba(234, 225, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(178, 135, 253, 0.2);
+  }
+
+  .gradient-text {
+    @apply text-transparent bg-clip-text font-bold;
+    background-image: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  }
+
+  .gradient-border {
+    @apply relative rounded-full;
+    border: double 1px transparent;
+    background-image: linear-gradient(var(--color-ivory), var(--color-ivory)), 
+                    linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300;
+    &:hover {
+      @apply -translate-y-1 shadow-lg;
+    }
+  }
+
+  .bento-card {
+    @apply relative overflow-hidden rounded-3xl bg-white/80 backdrop-blur-sm border border-dove/20;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      @apply shadow-lg border-primary/20;
+      transform: translateY(-2px);
+    }
+  }
+}
